@@ -24,11 +24,24 @@ if(isset($_POST['submit'])){
    $prev_pass = $_POST['prev_pass'];
    $old_pass = sha1($_POST['old_pass']);
    $old_pass = filter_var($old_pass, FILTER_SANITIZE_STRING);
-   
+
+   if($old_pass == $empty_pass){
+    $message[] = 'please enter old password!';
+ }elseif($old_pass != $prev_pass){
+    $message[] = 'old password not matched!';
+ }elseif(!preg_match('/^[0-9]{10}+$/', $phone)) {
+    $message[] = 'Invalid Phone Number';
+ }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $message[] = "Invalid email format";
+  }else{
+    $update_profile = $conn->prepare("UPDATE `users` SET name = ?, email = ?, phone = ? WHERE id = ?");
+    $update_profile->execute([$name, $email, $phone, $user_id]);
+    $message[] = 'Updated successfully!';
+  }
 
 }
 
-if(isset($_POST['submit'])){
+if(isset($_POST['reset_password'])){
 
   $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
   $prev_pass = $_POST['prev_pass'];
@@ -133,7 +146,8 @@ if(isset($_POST['submit'])){
           </div>
           
         </div>
-        <button type="submit" name="submit" class="btn btn-primary wow fadeInUp">Update Profile</button>
+        <button type="submit" name="submit" class="btn btn-primary wow zoomIn">Update User</button>
+        <button type="submit"  name="reset_password" class="btn btn-primary wow zoomIn">Update Password</button>
       </form>
     </div>
   </div>
