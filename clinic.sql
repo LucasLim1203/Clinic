@@ -1,15 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 12:23 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,23 +6,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `clinic`
---
 
--- --------------------------------------------------------
-
---
--- Table structure for table `appointments`
---
-
-CREATE TABLE `appointments` (
-  `id` int(30) NOT NULL,
-  `patient_id` int(30) NOT NULL,
-  `date_sched` datetime NOT NULL,
   `ailment` text NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoCOLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointments`
