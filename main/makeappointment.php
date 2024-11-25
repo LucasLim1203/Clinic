@@ -93,22 +93,22 @@ $sched_set = array_column($sched_set_qry->fetchAll(PDO::FETCH_ASSOC),'meta_value
         require '../phpmailer/src/SMTP.php';
         $mail = new PHPMailer(true);
         
-        $mail->isSMTP();
+         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'clinicreply@gmail.com';
-        $mail->Password = 'rgko tzox mpfb yshd';
+        $mail->Username = 'lucaslim1149@gmail.com';
+        $mail->Password = 'yfpu goln qqwi attu';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         
-        $mail->setFrom('clinicreply@gmail.com');
+        $mail->setFrom('lucaslim1149@gmail.com');
         
         $mail->addAddress($email);
         
      
        
         $mail->Subject = 'Clinic Appointment';
-        $mail->Body = 'you are succefull book appointment! wait our answer to comfirm the appointment!! will contact you soon';
+        $mail->Body = 'Your booking is successfull! Please wait for our reply! Will contact back soon! Thanks for choosing us!';
         
      
       
